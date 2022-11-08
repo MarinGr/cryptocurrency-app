@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <StyledLink to="/cryptocurrency-app">
+    <StyledLink to="/">
       <Container>CR</Container>
     </StyledLink>
   );

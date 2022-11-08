@@ -29,7 +29,7 @@ function App() {
         <Header />
         <Routes>
           <Route
-            path="/cryptocurrency-app"
+            path="/"
             element={
               <Home
                 cryptoList={cryptoList}
