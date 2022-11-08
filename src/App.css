@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+}
+
+:root {
+  --header-bg-color: rgba(5, 8, 114, 1);
+  --main-bg-color: #020733;
+  --card-bg-color: radial-gradient(
+    circle 610px at 5.2% 51.6%,
+    rgba(5, 8, 114, 1) 0%,
+    rgba(7, 3, 53, 1) 97.5%
+  );
+  --search-bg-color: #fff;
+  --primary-text-color: #e1e3eb;
+  --secondary-text-color: #8692bd;
+  --primary-color: #ebe645;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
