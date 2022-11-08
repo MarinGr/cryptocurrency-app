@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 import Header from "./components/Header";
 import Details from "./pages/Details";
@@ -24,12 +24,12 @@ function App() {
   }
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Container>
         <Header />
         <Routes>
           <Route
-            path="/"
+            path="/cryptocurrency-app"
             element={
               <Home
                 cryptoList={cryptoList}
@@ -41,7 +41,7 @@ function App() {
           <Route path="/currency/:id" element={<Details />} />
         </Routes>
       </Container>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
