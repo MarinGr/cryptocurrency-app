@@ -7,5 +7,3 @@ This React app allows you browse cryptocurrencies you are intrerested in.
 You can check live demo project by clicking this link https://maringr.github.io/cryptocurrency-app/
 
 ![Home page](/src/images/home_page.png)
-
-![Datails page](/src/images/detail-card.png)
