@@ -1,24 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { BsSearch } from "react-icons/bs";
 
 function Search({ cryptoList, setFilteredList }) {
   const [searchedCrypto, setSearchedCrypto] = useState("");
 
-  function filterCrypto(e) {
-    setSearchedCrypto(e.target.value);
+  useEffect(() => {
     const filtered = cryptoList.filter((item) =>
       item.name.toLowerCase().includes(searchedCrypto.toLowerCase())
     );
     setFilteredList(filtered);
-  }
+  }, [searchedCrypto]);
 
   return (
     <Container>
       <InputGroup>
         <SearchIcon />
         <Input
-          onChange={(e) => filterCrypto(e)}
+          onChange={(e) => setSearchedCrypto(e.target.value)}
           type="text"
           placeholder="Search..."
           autoFocus
