@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { RotatingLines as Spinner } from "react-loader-spinner";
 
-function CryptoList({ filteredList }) {
+function CryptoList({ filteredList, spinner }) {
   const allCurrencies = filteredList.map((item) => (
     <StyledLink to={`/currency/${item.id}`} key={item.id}>
       <CryptoCard key={item.id}>
@@ -17,7 +18,20 @@ function CryptoList({ filteredList }) {
     </StyledLink>
   ));
 
-  return <Container>{allCurrencies}</Container>;
+  return (
+    <Container>
+      {spinner && (
+        <Spinner
+          strokeColor="var(--secondary-text-color)"
+          strokeWidth="4"
+          animationDuration="0.75"
+          width="140"
+          visible={true}
+        />
+      )}
+      {allCurrencies}
+    </Container>
+  );
 }
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -25,7 +39,7 @@ const StyledLink = styled(Link)`
 
 const Container = styled.div`
   background-color: var(--main-bg-color);
-  padding: 1rem 3rem;
+  padding: 0 3rem;
   height: 100%;
   display: flex;
   justify-content: center;

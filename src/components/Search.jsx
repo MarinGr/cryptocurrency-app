@@ -31,7 +31,7 @@ function Search({ cryptoList, setFilteredList }) {
 
 const Container = styled.div`
   background-color: var(--main-bg-color);
-  padding: 2rem 3rem 1rem;
+  padding: 3rem;
   display: flex;
   justify-content: center;
 `;

@@ -9,16 +9,19 @@ import Home from "./pages/Home";
 function App() {
   const [cryptoList, setCryptoList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
+  const [spinner, setSpinner] = useState(false);
 
   useEffect(() => {
     fetchCurrencies();
   }, []);
 
   async function fetchCurrencies() {
+    setSpinner(true);
     const data = await fetch(
       "https://api.coinstats.app/public/v1/coins?skip=0&currency=USD"
     );
     const result = await data.json();
+    setSpinner(false);
     setCryptoList(result.coins);
     setFilteredList(result.coins);
   }
@@ -32,6 +35,7 @@ function App() {
             path="/cryptocurrency-app"
             element={
               <Home
+                spinner={spinner}
                 cryptoList={cryptoList}
                 filteredList={filteredList}
                 setFilteredList={setFilteredList}
