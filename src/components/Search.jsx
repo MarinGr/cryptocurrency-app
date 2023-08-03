@@ -44,7 +44,7 @@ const InputGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow);
 `;
 
 const Input = styled.input`

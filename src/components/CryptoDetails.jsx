@@ -48,9 +48,9 @@ const CardWrapper = styled.div`
   margin-top: 2rem;
   padding: 2rem 3rem;
   border-radius: 1rem;
-  background-color: var(--header-bg-color);
+  background: var(--primary-color);
   color: var(--primary-text-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow);
   overflow: hidden;
   display: flex;
   justify-content: center;

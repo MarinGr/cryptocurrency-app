@@ -58,7 +58,7 @@ const CryptoCard = styled.div`
   align-items: center;
   gap: 1rem;
   color: var(--primary-text-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow);
 
   img {
     max-width: 80px;
