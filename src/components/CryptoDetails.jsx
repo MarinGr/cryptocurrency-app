@@ -8,7 +8,7 @@ function CryptoDetails({ item, chartData, detailsSpinner }) {
       {detailsSpinner && (
         <Spinner
           strokeColor="var(--secondary-text-color)"
-          strokeWidth="4"
+          strokeWidth="3"
           animationDuration="0.75"
           width="140"
           visible={true}

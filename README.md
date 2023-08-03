@@ -1,6 +1,10 @@
 # Cryptocurrency App
 
-This React app allows you browse cryptocurrencies you are intrerested in.
+Cryptocurrency app that provides data about current cryptocurrency prices. Built with React and React Router and includes integration with CoinStats API.
+
+## Stack
+
+React, React Router, Styled Components, CoinStats API
 
 ## Live demo
 
