@@ -6,23 +6,8 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
-import { useState, useEffect } from "react";
 
-function Chart({ item }) {
-  const [chartData, setChartData] = useState([]);
-
-  useEffect(() => {
-    getChartData();
-  }, [item]);
-
-  async function getChartData() {
-    const fetchedData = await fetch(
-      `https://api.coinstats.app/public/v1/charts?period=1y&coinId=${item.id}`
-    );
-    const result = await fetchedData.json();
-    setChartData(result.chart);
-  }
-
+function Chart({ chartData }) {
   const data = chartData.map((array) => {
     return { name: `day ${chartData.indexOf(array)}`, price: array[1] };
   });

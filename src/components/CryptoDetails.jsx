@@ -1,43 +1,66 @@
 import styled from "styled-components";
 import Chart from "./Chart";
+import { RotatingLines as Spinner } from "react-loader-spinner";
 
-function CryptoDetails({ item }) {
+function CryptoDetails({ item, chartData, detailsSpinner }) {
   return (
-    <Card>
-      <Header>
-        <img src={item.icon} alt={item.name} />
-        <div>
-          <h2>{item.name}</h2>
-          <p>{item.symbol}</p>
-        </div>
-      </Header>
-      <p>
-        Price: <Price>${Math.round(item.price * 100) / 100}</Price>
-      </p>
-      <ChartContainer>
-        <Chart item={item} />
-        <ChartLabel>Yearly dynamic</ChartLabel>
-      </ChartContainer>
-      <Website>
-        <span> Official website: </span>
-        <WebsiteLink href={item.websiteUrl} target="_blank">
-          {item.websiteUrl}
-        </WebsiteLink>
-      </Website>
-    </Card>
+    <CardWrapper>
+      {detailsSpinner && (
+        <Spinner
+          strokeColor="var(--secondary-text-color)"
+          strokeWidth="4"
+          animationDuration="0.75"
+          width="140"
+          visible={true}
+        />
+      )}
+      {!detailsSpinner && (
+        <Card>
+          <Header>
+            <img src={item.icon} alt={item.name} />
+            <div>
+              <h2>{item.name}</h2>
+              <p>{item.symbol}</p>
+            </div>
+          </Header>
+          <p>
+            Price: <Price>${Math.round(item.price * 100) / 100}</Price>
+          </p>
+          <ChartContainer>
+            <Chart chartData={chartData} />
+            <ChartLabel>Yearly dynamic</ChartLabel>
+          </ChartContainer>
+          <Website>
+            <span> Official website: </span>
+            <WebsiteLink href={item.websiteUrl} target="_blank">
+              {item.websiteUrl}
+            </WebsiteLink>
+          </Website>
+        </Card>
+      )}
+    </CardWrapper>
   );
 }
 
-const Card = styled.div`
+const CardWrapper = styled.div`
+  height: 500px;
+  width: 500px;
   margin-top: 2rem;
   padding: 2rem 3rem;
   border-radius: 1rem;
   background-color: var(--header-bg-color);
   color: var(--primary-text-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
   img {
     max-width: 80px;
